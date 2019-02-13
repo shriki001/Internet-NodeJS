@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/menu %>
+  <div class="container-fluid bg-3 text-center">
+    <h3>
+      <%= page %>
+    </h3>
+    <div id="lst">
+    <% list.forEach(function(list) {%>
+      <p><button id = '<%= list.ID %>' class="delrc btn btn-danger btn-sm">X</button>
+      <strong>Author Name:</strong><%= list.Author %><br>
+      <strong>Description:</strong><%= list.Description %></p>
+    <% }); %>
+    </div>
+  </div>
+</body>
+<% include partials/script %>
+<script>
+    $(document).ready(function () {
+        $(".delrc").click(function () {
+            let id = this.id;
+            let btn = this;
+            $.ajax({
+                method: "post",
+                url: "/index/" + id,
+                success: function (data) {
+                    if(data) {
+                        swal('Recipe Deleted Successfully!', '', 'success');
+                        $(btn).parent().hide(1000,function(){this.remove()});
+                    }
+                }
+            })
+        });
+    });
+</script>
+
+</html>

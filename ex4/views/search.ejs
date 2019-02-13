@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/menu %>
+
+  <div class="container-fluid bg-3 text-center">
+    <h3>
+      <%= page %>
+    </h3>
+    <p>Search For Recipes:</p>
+    <input type="text" id='query' name ='value' placeholder="Search..."/><br>
+    <button id="btn">Search</button>
+    <ul id='rec'></ul>
+    <br>
+    <p>Your History Searches:</p>
+    <ul id='searchhistory'>
+      <% if(history){history.forEach(function(item){%>
+      <li>
+        <%=item%>
+      </li>
+      <%}) }%>
+    </ul>
+  </div>
+
+</body>
+<% include partials/script %>
+<script>
+  $(document).ready(function () {
+    let $ulrecipes = $('#rec');
+        $("#btn").click(function () {
+            query = $('#query').val();
+            if (query === "") {
+                $ulrecipes.empty();
+            }
+            if (query !== "") {
+                $.ajax({
+                    type: "GET",
+                    url: "/search/" + query,
+                    success: function (data) {
+                        if(!data[0].length)
+                            swal('"'+query+'" Not Found!','', 'error');
+                        $ulrecipes.empty();
+                        $.each(data[0], function (i, value) {
+                            let res = value.Description.replace(query,'<b>'+query+'</b>');
+                            $ulrecipes.append('<li id="list"><u>Author Name</u>: ' + value.Author + '</li><li id="list"><u>Recipe</u>: ' + res + '</li>');
+                        });
+                        $('#searchhistory').empty();
+                        $.each(data[1], function (i, value) {
+                            $('#searchhistory').append(`<li>${value}</li>`);
+                        });
+                    }})}
+        });
+});
+</script>
+</html>

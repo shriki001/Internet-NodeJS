@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Exercise 2 part 3 - Javascript & jQuery</title>
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  
+  <script>
+    $(document).ready(function () {
+      $('a').click(function () {
+        $('a').not($(this)).next().slideUp();
+        $(this).next().slideToggle();
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+  <ul id="menu">
+    <li>
+      <a href="#">Menu 1</a>
+      <ul style="display:none;">
+        <li>Sub-menu 1</li>
+        <li>Sub-menu 2</li>
+        <li>Sub-menu 3</li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Menu 2</a>
+      <ul style="display:none;">
+        <li>Sub-menu 1</li>
+        <li>Sub-menu 2</li>
+        <li>Sub-menu 3</li>
+      </ul>
+    </li>
+</ul>
+</body>
+
+</html>

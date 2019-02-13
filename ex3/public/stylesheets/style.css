@@ -1,0 +1,42 @@
+.bg-3 { 
+  background-color: #ffffff;
+  color: #555555;
+}
+.container-fluid {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+  color: #1abc9c !important;
+}
+.active>a {
+color: #1abc9c !important;;
+}
+
+#list,p{font-size: 20px; list-style-type:none;}
+strong{margin: 10px;}
+#rec{background-color: #8d8c8c;color: black;}
+h3,#query{margin-bottom: 50px;}
+h3{border-bottom:1px solid black; }
+
+input{padding: 10px;}
+#theForm {display: inline-table;}
+.row {display: table-row;}   
+.row input , textarea{display: table-cell;}
+.row label {
+ display: table-cell;
+ text-align:left; 
+ padding-right:15px; 
+ }
+a{cursor: pointer;}
+ textarea{height: 200px;width: 300px;vertical-align: middle; resize: none;}
+ #name{width: 300px;}

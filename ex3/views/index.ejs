@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/menu %>
+  <div class="container-fluid bg-3 text-center">
+    <h3>
+      <%= page %>
+    </h3>
+    <% list.forEach(function(list) {%>
+      <p><strong>Author Name:</strong><%= list.authorName %><br>
+      <strong>Description:</strong><%= list.description %></p>
+    <% }); %>
+  </div>
+</body>
+<% include partials/script %>
+
+</html>

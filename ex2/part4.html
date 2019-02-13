@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Exercise 2 part 4 - Javascript & jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        nav ul li {
+            list-style: none;
+            float: left;
+            padding-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #222;
+            background-color: #ccc;
+            padding: 4px 5px;
+        }
+
+        .active {
+            color: #fff;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('a').click(function(){
+                $('.menu a').removeClass('active');
+                $(this).addClass('active');
+
+  });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li class="menu"><a href="#" class="active">Salads</a></li>
+                <li class="menu"><a href="#">Entrees</a></li>
+                <li class="menu"><a href="#">Main course</a></li>
+                <li class="menu"><a href="#">Deserts</a></li>
+                <li class="menu"><a href="#">Wine</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Exercise 2 part 2 - Javascript & jQuery</title>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <style>
+        button {
+            margin: 5px;
+        }
+
+        #rect {
+            margin: 10px;
+            height: 10px;
+            width: 150px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            var rectangle = $("<div id='rect'>");
+            var btn1 = $('<button>',
+                {
+                    text: 'inc height by 10px',
+                    click: function () {
+                        var last_height = $("#rect").css('height');
+                        if (last_height == "100px") {
+                            curr_height = "10px";
+                            $("#rect").height(curr_height);
+                        }
+                        else $("#rect").height("+=10px");
+                    }
+                });
+            var btn2 = $('<button>',
+                {
+                    text: 'color to green',
+                    click: function () {
+                        $("#rect").css("background-color", 'green');
+                    }
+                });
+            var btn3 = $('<button>',
+                {
+                    text: 'initial colors',
+                    click: function () {
+                        $("#rect").css("background-color", "");
+                    }
+                });
+            var btn4 = $('<button>',
+                {
+                    text: 'disappear',
+                    click: function () { $("#rect").hide(); }
+                });
+            var btn5 = $('<button>',
+                {
+                    text: 'reappear',
+                    click: function () { $("#rect").show(); }
+                });
+            $("body").append(btn1, btn2, btn3, btn4, btn5, rectangle);
+
+        });
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

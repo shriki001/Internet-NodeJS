@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Exercise 2 part 5 - Javascript & jQuery</title>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <style>
+            nav ul li {
+                /* list-style: none;
+                float: left; 
+                padding-right: 20px;
+                */
+                padding-top: 10px;
+            }
+    
+            nav ul li a {
+                text-decoration: none;
+                color: #222;
+                background-color: #ccc;
+                padding: 4px 5px;
+            }
+    
+            .active {
+                color: #fff;
+            }
+        </style>
+    <script>
+        var menu1 = ['Sub-Menu1 - 1', 'Sub-Menu1 - 2', 'Sub-Menu1 - 3',];
+        var menu2 = ['Sub-Menu2 - 1', 'Sub-Menu2 - 2', 'Sub-Menu2 - 3',];
+
+        $(document).ready(function () {
+            $('#menu').append("<li><a href='#'>Menu 1</a><ul id ='menu1' style='display:none;'>");
+            var list = ('#menu1').app
+            $.each(menu1, function (i) {
+                var li = $("<li>");
+                li.text(menu1[i]).appendTo(li);
+                li.appendTo('#menu1');
+            });
+            $('#menu').append("<li><a href='#'>Menu 2</a><ul id ='menu2' style='display:none;'>");
+            var list = ('#menu2')
+            $.each(menu2, function (i) {
+                var li = $("<li class='menu'>");
+                li.text(menu2[i]).appendTo(li);
+                li.appendTo('#menu2');
+            });
+            $('#menu a').click(function () {
+                $('#menu a').not($(this)).next().slideUp();
+                $(this).next().slideToggle();
+            });
+            $('nav a').click(function(){
+                $('nav a').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+     <nav>   
+    <ul id="menu">
+    </ul>
+</nav>
+</body>
+
+</html>

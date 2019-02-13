@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/menu %>
+
+  <div class="container-fluid bg-3 text-center">
+    <h3>
+      <%= page %>
+    </h3>
+    <p>Search For Recipes:</p>
+    <input type="text" id='query' name ='value' placeholder="Search..."><br>
+    <ul id='rec'></ul>
+  </div>
+
+</body>
+<% include partials/script %>
+<script>
+  $(document).ready(function () {
+    let $ulrecipes = $('#rec');
+    if ($('#query').length) {
+        $(this).keyup(function () {
+            query = $('#query').val();
+            if (query === "") {
+                $ulrecipes.empty();
+            }
+            if (query !== "") {
+                $.ajax({
+                    type: "GET",
+                    url: "/search/" + query,
+                    success: function (data) {
+                        $ulrecipes.empty();
+                        $.each(data, function (i, value) {
+                            let res = value.description.replace(query,'<b>'+query+'</b>');
+                            $ulrecipes.append('<li id="list"><u>Author Name</u>: ' + value.authorName + '</li><li id="list"><u>Recipe</u>: ' + res + '</li>');
+                        });
+                    }})}
+        });}
+});
+</script>
+</html>

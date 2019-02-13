@@ -1,0 +1,19 @@
+{
+  "name": "ex4",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "cookie-parser": "latest",
+    "debug": "latest",
+    "express": "latest",
+    "express-session": "latest",
+    "http-errors": "latest",
+    "ejs": "latest",
+    "less-middleware": "latest",
+    "morgan": "latest",
+    "sqlite3": "latest"
+  }
+}
